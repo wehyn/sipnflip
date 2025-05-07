@@ -13,7 +13,7 @@ export default function Game() {
   const colorScheme = useColorScheme();
   const isDark = colorScheme === "dark";
   const insets = useSafeAreaInsets();
-  const [players, setPlayers] = useState<string[]>(["wayne"]);
+  const [players, setPlayers] = useState<string[]>([]);
   const [newPlayerName, setNewPlayerName] = useState("");
 
   const addPlayer = () => {
@@ -36,16 +36,16 @@ export default function Game() {
     >
       <StatusBar barStyle={isDark ? "light-content" : "dark-content"} />
 
-      <View className="flex-1 px-6 pt-10">
+      <View className="flex-1 px-6 flex justify-between">
         <Text
-          className={`text-2xl font-bold text-center mb-8 ${
+          className={`text-2xl font-bold text-center mt-10 ${
             isDark ? "text-white" : "text-black"
           }`}
         >
           Player Setup
         </Text>
 
-        <View className="mt-auto mb-4">
+        <View className="w-full">
           {players.map((player, index) => (
             <View
               key={index}
